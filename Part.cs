@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    abstract public class PartObject
+    abstract public class Part
+
     {
         //Properties
         public int PartID { get; set; }

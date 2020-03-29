@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace InventorySystem
 {
     public class Product
     {
-        public BindingList<PartObject> AssociatedParts = new BindingList<PartObject>();
+        public BindingList<Part> AssociatedParts = new BindingList<Part>();
 
         //Property
         public Product(int productID, string name, int inStock, decimal price,
@@ -37,22 +38,46 @@ namespace InventorySystem
         //METHODS
 
         //Add Associated Part
-        //public void AddAssociatedPart(PartObject)
-        //{
-        //    AssociatedParts.Add(PartObject);
-        //}
+        public void AddAssociatedPart(Part PartObject)
+        {
+            AssociatedParts.Add(PartObject);
+        }
 
         //Remove Associated Part
         public bool RemoveAssociatedPart(int partID)
         {
-           
+            bool success = false;
+            foreach (Part part in AssociatedParts)
+            {
+                if (part.PartID == partID)
+                {
+                    AssociatedParts.Remove(part);
+                    return success = true;
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
+
         }
         
         //Lookup Associated Part
-        public PartObject LookupAssociatedPart(int PartID)
+        public Part LookupAssociatedPart(int PartID)
         {
+            foreach (Part part in AssociatedParts)
+            {
+                if (part.PartID == PartID)
+                {
+                    return part;
+                }
+            }
 
+            MessageBox.Show("No Part Found");
+            return null;
         }
-    }
+    }  
+    
 }
 

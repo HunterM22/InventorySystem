@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventorySystem
 {
-    public class OutsourcedPart : PartObject
+    public class OutsourcedPart : Part
 
     {
         //Property

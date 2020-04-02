@@ -70,6 +70,7 @@
             this.APInhouseRadio.TabStop = true;
             this.APInhouseRadio.Text = "In-House";
             this.APInhouseRadio.UseVisualStyleBackColor = true;
+            this.APInhouseRadio.CheckedChanged += new System.EventHandler(this.APInhouseRadio_CheckedChanged);
             // 
             // APOutsourcedRadio
             // 
@@ -81,6 +82,7 @@
             this.APOutsourcedRadio.TabStop = true;
             this.APOutsourcedRadio.Text = "Outsourced";
             this.APOutsourcedRadio.UseVisualStyleBackColor = true;
+            this.APOutsourcedRadio.CheckedChanged += new System.EventHandler(this.APOutsourcedRadio_CheckedChanged);
             // 
             // APIDLabel
             // 
@@ -164,12 +166,15 @@
             // 
             // APMachineIDLabel
             // 
-            this.APMachineIDLabel.AutoSize = true;
-            this.APMachineIDLabel.Location = new System.Drawing.Point(50, 360);
+            this.APMachineIDLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.APMachineIDLabel.Location = new System.Drawing.Point(18, 360);
             this.APMachineIDLabel.Name = "APMachineIDLabel";
-            this.APMachineIDLabel.Size = new System.Drawing.Size(78, 17);
+            this.APMachineIDLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.APMachineIDLabel.Size = new System.Drawing.Size(110, 19);
             this.APMachineIDLabel.TabIndex = 13;
             this.APMachineIDLabel.Text = "Machine ID";
+            this.APMachineIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.APMachineIDLabel.Click += new System.EventHandler(this.APMachineIDLabel_Click);
             // 
             // APMachineIDTextBox
             // 
@@ -186,6 +191,7 @@
             this.APSaveButton.TabIndex = 15;
             this.APSaveButton.Text = "Save";
             this.APSaveButton.UseVisualStyleBackColor = true;
+            this.APSaveButton.Click += new System.EventHandler(this.APSaveButton_Click);
             // 
             // APCancelButton
             // 
@@ -195,6 +201,7 @@
             this.APCancelButton.TabIndex = 16;
             this.APCancelButton.Text = "Cancel";
             this.APCancelButton.UseVisualStyleBackColor = true;
+            this.APCancelButton.Click += new System.EventHandler(this.APCancelButton_Click);
             // 
             // APNameLabel
             // 

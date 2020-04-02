@@ -59,6 +59,8 @@
             this.MSDGVParts.RowTemplate.Height = 24;
             this.MSDGVParts.Size = new System.Drawing.Size(490, 250);
             this.MSDGVParts.TabIndex = 0;
+            this.MSDGVParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVCellClick);
+            this.MSDGVParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MSDGVParts_CellContentClick);
             // 
             // MSDGVProducts
             // 
@@ -70,6 +72,7 @@
             this.MSDGVProducts.RowTemplate.Height = 24;
             this.MSDGVProducts.Size = new System.Drawing.Size(490, 250);
             this.MSDGVProducts.TabIndex = 1;
+            this.MSDGVProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVProd_CellClick);
             // 
             // MSHeaderLabel
             // 
@@ -87,6 +90,7 @@
             this.MSPartsSearchBox.Name = "MSPartsSearchBox";
             this.MSPartsSearchBox.Size = new System.Drawing.Size(186, 22);
             this.MSPartsSearchBox.TabIndex = 3;
+            this.MSPartsSearchBox.TextChanged += new System.EventHandler(this.MSPartsSearchBox_TextChanged);
             // 
             // MSProductSearchBox
             // 
@@ -94,6 +98,7 @@
             this.MSProductSearchBox.Name = "MSProductSearchBox";
             this.MSProductSearchBox.Size = new System.Drawing.Size(186, 22);
             this.MSProductSearchBox.TabIndex = 4;
+            this.MSProductSearchBox.TextChanged += new System.EventHandler(this.MSProductSearchBox_TextChanged);
             // 
             // MSSearchPartsButton
             // 
@@ -103,6 +108,7 @@
             this.MSSearchPartsButton.TabIndex = 5;
             this.MSSearchPartsButton.Text = "Search";
             this.MSSearchPartsButton.UseVisualStyleBackColor = true;
+            this.MSSearchPartsButton.Click += new System.EventHandler(this.MSSearchPartsButton_Click);
             // 
             // MSProductSearchButton
             // 
@@ -112,6 +118,7 @@
             this.MSProductSearchButton.TabIndex = 6;
             this.MSProductSearchButton.Text = "Search";
             this.MSProductSearchButton.UseVisualStyleBackColor = true;
+            this.MSProductSearchButton.Click += new System.EventHandler(this.MSProductSearchButton_Click);
             // 
             // MSDGVPartsLabel
             // 
@@ -151,6 +158,7 @@
             this.MSAddProductButton.TabIndex = 10;
             this.MSAddProductButton.Text = "Add";
             this.MSAddProductButton.UseVisualStyleBackColor = true;
+            this.MSAddProductButton.Click += new System.EventHandler(this.MSAddProductButton_Click);
             // 
             // MSModifyPartButton
             // 
@@ -160,6 +168,7 @@
             this.MSModifyPartButton.TabIndex = 11;
             this.MSModifyPartButton.Text = "Modify";
             this.MSModifyPartButton.UseVisualStyleBackColor = true;
+            this.MSModifyPartButton.Click += new System.EventHandler(this.MSModifyPartButton_Click);
             // 
             // MSModifyProductButton
             // 
@@ -169,6 +178,7 @@
             this.MSModifyProductButton.TabIndex = 12;
             this.MSModifyProductButton.Text = "Modify";
             this.MSModifyProductButton.UseVisualStyleBackColor = true;
+            this.MSModifyProductButton.Click += new System.EventHandler(this.MSModifyProductButton_Click);
             // 
             // MSDeletePartButton
             // 
@@ -178,6 +188,7 @@
             this.MSDeletePartButton.TabIndex = 13;
             this.MSDeletePartButton.Text = "Delete";
             this.MSDeletePartButton.UseVisualStyleBackColor = true;
+            this.MSDeletePartButton.Click += new System.EventHandler(this.MSDeletePartButton_Click);
             // 
             // MSDeleteProductButton
             // 
@@ -187,6 +198,7 @@
             this.MSDeleteProductButton.TabIndex = 14;
             this.MSDeleteProductButton.Text = "Delete";
             this.MSDeleteProductButton.UseVisualStyleBackColor = true;
+            this.MSDeleteProductButton.Click += new System.EventHandler(this.MSDeleteProductButton_Click);
             // 
             // MSExitButton
             // 
@@ -196,6 +208,7 @@
             this.MSExitButton.TabIndex = 15;
             this.MSExitButton.Text = "Exit";
             this.MSExitButton.UseVisualStyleBackColor = true;
+            this.MSExitButton.Click += new System.EventHandler(this.MSExitButton_Click);
             // 
             // Mainscreen
             // 

@@ -16,5 +16,32 @@ namespace InventorySystem
         {
             InitializeComponent();
         }
+
+        private void APCancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void APInhouseRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            APMachineIDLabel.Text = "Machine ID";
+            APMachineIDTextBox.Text = "";
+        }
+
+        private void APOutsourcedRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            APMachineIDLabel.Text = "Company Name";
+            APMachineIDTextBox.Text = "";
+        }
+
+        private void APMachineIDLabel_Click(object sender, EventArgs e)
+        {
+            APMachineIDLabel.TextAlign = ContentAlignment.TopRight;
+        }
+
+        private void APSaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

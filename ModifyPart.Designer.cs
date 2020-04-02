@@ -74,6 +74,7 @@
             this.MPCancelButton.TabIndex = 35;
             this.MPCancelButton.Text = "Cancel";
             this.MPCancelButton.UseVisualStyleBackColor = true;
+            this.MPCancelButton.Click += new System.EventHandler(this.MPCancelButton_Click);
             // 
             // MPSaveButton
             // 
@@ -83,6 +84,7 @@
             this.MPSaveButton.TabIndex = 34;
             this.MPSaveButton.Text = "Save";
             this.MPSaveButton.UseVisualStyleBackColor = true;
+            this.MPSaveButton.Click += new System.EventHandler(this.MPSaveButton_Click);
             // 
             // MPMachineIDTextBox
             // 
@@ -93,12 +95,12 @@
             // 
             // MPMachineIDLabel
             // 
-            this.MPMachineIDLabel.AutoSize = true;
-            this.MPMachineIDLabel.Location = new System.Drawing.Point(55, 356);
+            this.MPMachineIDLabel.Location = new System.Drawing.Point(23, 356);
             this.MPMachineIDLabel.Name = "MPMachineIDLabel";
-            this.MPMachineIDLabel.Size = new System.Drawing.Size(78, 17);
+            this.MPMachineIDLabel.Size = new System.Drawing.Size(110, 19);
             this.MPMachineIDLabel.TabIndex = 32;
             this.MPMachineIDLabel.Text = "Machine ID";
+            this.MPMachineIDLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // MPMinTextBox
             // 
@@ -190,6 +192,7 @@
             this.MPOutsourcedRadio.TabStop = true;
             this.MPOutsourcedRadio.Text = "Outsourced";
             this.MPOutsourcedRadio.UseVisualStyleBackColor = true;
+            this.MPOutsourcedRadio.CheckedChanged += new System.EventHandler(this.MPOutsourcedRadio_CheckedChanged);
             // 
             // MPInhouseRadio
             // 
@@ -201,6 +204,7 @@
             this.MPInhouseRadio.TabStop = true;
             this.MPInhouseRadio.Text = "In-House";
             this.MPInhouseRadio.UseVisualStyleBackColor = true;
+            this.MPInhouseRadio.CheckedChanged += new System.EventHandler(this.MPInhouseRadio_CheckedChanged);
             // 
             // MPHeaderLabel
             // 

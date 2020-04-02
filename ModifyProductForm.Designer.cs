@@ -71,6 +71,7 @@
             this.MProdSearchButton.TabIndex = 81;
             this.MProdSearchButton.Text = "Search";
             this.MProdSearchButton.UseVisualStyleBackColor = true;
+            this.MProdSearchButton.Click += new System.EventHandler(this.MProdSearchButton_Click);
             // 
             // MProdDGVAssocPartsLabel
             // 
@@ -98,6 +99,7 @@
             this.MProdSaveButton.TabIndex = 78;
             this.MProdSaveButton.Text = "Save";
             this.MProdSaveButton.UseVisualStyleBackColor = true;
+            this.MProdSaveButton.Click += new System.EventHandler(this.MProdSaveButton_Click);
             // 
             // MProdCancelButton
             // 
@@ -107,6 +109,7 @@
             this.MProdCancelButton.TabIndex = 77;
             this.MProdCancelButton.Text = "Cancel";
             this.MProdCancelButton.UseVisualStyleBackColor = true;
+            this.MProdCancelButton.Click += new System.EventHandler(this.MProdCancelButton_Click);
             // 
             // MProdDeleteButton
             // 
@@ -116,6 +119,7 @@
             this.MProdDeleteButton.TabIndex = 76;
             this.MProdDeleteButton.Text = "Delete";
             this.MProdDeleteButton.UseVisualStyleBackColor = true;
+            this.MProdDeleteButton.Click += new System.EventHandler(this.MProdDeleteButton_Click);
             // 
             // MProdAddButton
             // 
@@ -125,6 +129,7 @@
             this.MProdAddButton.TabIndex = 75;
             this.MProdAddButton.Text = "Add";
             this.MProdAddButton.UseVisualStyleBackColor = true;
+            this.MProdAddButton.Click += new System.EventHandler(this.MProdAddButton_Click);
             // 
             // MProdDGVAssocParts
             // 
@@ -136,6 +141,7 @@
             this.MProdDGVAssocParts.RowTemplate.Height = 24;
             this.MProdDGVAssocParts.Size = new System.Drawing.Size(490, 171);
             this.MProdDGVAssocParts.TabIndex = 74;
+            this.MProdDGVAssocParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MProdDGVAssocParts_CellContentClick);
             // 
             // MProdDGVParts
             // 
@@ -147,6 +153,7 @@
             this.MProdDGVParts.RowTemplate.Height = 24;
             this.MProdDGVParts.Size = new System.Drawing.Size(490, 171);
             this.MProdDGVParts.TabIndex = 73;
+            this.MProdDGVParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MProdDGVParts_CellContentClick);
             // 
             // MProdNameTextBox
             // 

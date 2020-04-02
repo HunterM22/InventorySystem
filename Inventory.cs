@@ -14,6 +14,13 @@ namespace InventorySystem
         public static BindingList<Product> Products = new BindingList<Product>();
         public static BindingList<Part> AllParts = new BindingList<Part>();
 
+        public static int CurrPartIndex { get; set; }
+        public static int CurrProductIndex { get; set; }
+
+        public static Part CurrentPart { get; set; }
+
+        public static Product CurrentProduct { get; set; }
+
         //PRODUCT METHODS
 
         //Add Product
@@ -35,7 +42,6 @@ namespace InventorySystem
                 }
                 else
                 {
-                    MessageBox.Show("Removal failed.");
                     return false;
                 }
             }
@@ -52,8 +58,7 @@ namespace InventorySystem
                     return prod;
                 }
             }
-            Product emptyProd = new Product();
-            return emptyProd;
+            return null;
         }
 
         //Update Product
@@ -61,16 +66,16 @@ namespace InventorySystem
         {
             foreach (Product currentProd in Products)
             {
-                if (currentProd.ProductID == productID)
-                {//*************************************************************************
-                    //currentProd.Name = updatedProd.Name;
-                    //currentProd.InStock = updatedProd.InStock;
-                    //currentProd.Price = updatedProd.Price;
-                    //currentProd.Max = updatedProd.Max;
-                    //currentProd.Min = updatedProd.Min;
-                    //currentProd.AssociatedParts = updatedProd.AssociatedParts;
-                    //return;
-                }
+                //if (currentProd.ProductID == productID)
+                //{ 
+                //    currentProd.Name = updatedProd.Name;
+                //    currentProd.InStock = updatedProd.InStock;
+                //    currentProd.Price = updatedProd.Price;
+                //    currentProd.Max = updatedProd.Max;
+                //    currentProd.Min = updatedProd.Min;
+                //    currentProd.AssociatedParts = updatedProd.AssociatedParts;
+                //    return;
+                //}
 
             }
         }
@@ -88,6 +93,7 @@ namespace InventorySystem
         {
             try
             {
+                AllParts.Remove(CurrentPart);
                 AllParts.Remove(part);
                 return true;
             }
@@ -108,8 +114,8 @@ namespace InventorySystem
                     return part;
                 }
             }
-            Part emptyPart = null;//new InHousePart();
-            return emptyPart;
+            //MessageBox.Show("Part was not found.");
+            return null;
 
         }
 

@@ -15,6 +15,41 @@ namespace InventorySystem
         public ModifyPartForm()
         {
             InitializeComponent();
+            //Get current part from Mainscreen selected index
+            Inventory.CurrentPart = Inventory.AllParts[Inventory.CurrPartIndex];
+            //Populate fields for selected part into the Modify form
+            MPIDTextBox.Text = Inventory.CurrentPart.PartID.ToString(); 
+            MPNameTextBox.Text = Inventory.CurrentPart.Name;
+            MPPriceTextBox.Text = Inventory.CurrentPart.Price.ToString();
+            MPInventoryTextBox.Text = Inventory.CurrentPart.InStock.ToString();
+            MPMinTextBox.Text = Inventory.CurrentPart.Min.ToString();
+            MPMaxTextBox.Text = Inventory.CurrentPart.Max.ToString();
+            MPMachineIDTextBox.Text = Inventory.CurrentPart.MachineID.ToString();
+
+
+
+        }
+
+        private void MPCancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MPInhouseRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            MPMachineIDLabel.Text = "Machine ID";
+            MPMachineIDTextBox.Text = "";
+        }
+
+        private void MPOutsourcedRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            MPMachineIDLabel.Text = "Company Name";
+            MPMachineIDTextBox.Text = "";
+        }
+
+        private void MPSaveButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

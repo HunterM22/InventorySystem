@@ -172,6 +172,7 @@
             this.AProdDGVParts.RowTemplate.Height = 24;
             this.AProdDGVParts.Size = new System.Drawing.Size(490, 171);
             this.AProdDGVParts.TabIndex = 50;
+            this.AProdDGVParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AProdDGVParts_CellContentClick);
             // 
             // AProdDGVAssocParts
             // 
@@ -183,6 +184,7 @@
             this.AProdDGVAssocParts.RowTemplate.Height = 24;
             this.AProdDGVAssocParts.Size = new System.Drawing.Size(490, 171);
             this.AProdDGVAssocParts.TabIndex = 51;
+            this.AProdDGVAssocParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AProdDGVAssocParts_CellContentClick);
             // 
             // AProdAddButton
             // 
@@ -192,6 +194,7 @@
             this.AProdAddButton.TabIndex = 52;
             this.AProdAddButton.Text = "Add";
             this.AProdAddButton.UseVisualStyleBackColor = true;
+            this.AProdAddButton.Click += new System.EventHandler(this.AProdAddButton_Click);
             // 
             // AProdDeleteButton
             // 
@@ -201,6 +204,7 @@
             this.AProdDeleteButton.TabIndex = 53;
             this.AProdDeleteButton.Text = "Delete";
             this.AProdDeleteButton.UseVisualStyleBackColor = true;
+            this.AProdDeleteButton.Click += new System.EventHandler(this.AProdDeleteButton_Click);
             // 
             // AProdCancelButton
             // 
@@ -210,6 +214,7 @@
             this.AProdCancelButton.TabIndex = 54;
             this.AProdCancelButton.Text = "Cancel";
             this.AProdCancelButton.UseVisualStyleBackColor = true;
+            this.AProdCancelButton.Click += new System.EventHandler(this.AProdCancelButton_Click);
             // 
             // AProdSaveButton
             // 
@@ -219,6 +224,7 @@
             this.AProdSaveButton.TabIndex = 55;
             this.AProdSaveButton.Text = "Save";
             this.AProdSaveButton.UseVisualStyleBackColor = true;
+            this.AProdSaveButton.Click += new System.EventHandler(this.AProdSaveButton_Click);
             // 
             // AProdDGVPartsLabel
             // 
@@ -246,6 +252,7 @@
             this.AProdSearchButton.TabIndex = 58;
             this.AProdSearchButton.Text = "Search";
             this.AProdSearchButton.UseVisualStyleBackColor = true;
+            this.AProdSearchButton.Click += new System.EventHandler(this.AProdSearchButton_Click);
             // 
             // AProdSearchTextBox
             // 

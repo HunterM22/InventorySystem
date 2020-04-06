@@ -22,6 +22,9 @@ namespace InventorySystem
             InitializeComponent();
             MSDGVParts.DataSource = Inventory.AllParts;
             MSDGVProducts.DataSource = Inventory.Products;
+
+            //Inventory.CurrPartIndex = -1;
+            //Inventory.CurrProductIndex = -1;
         }
 
         private void MSAddPartButton_Click(object sender, EventArgs e)
@@ -64,7 +67,7 @@ namespace InventorySystem
         }
 
         private void MSModifyPartButton_Click(object sender, EventArgs e)
-        {/////
+        {///////////////////////////////////////////////////////////////
             if (Inventory.CurrPartIndex >= 0)
             {
                 this.Hide();
@@ -82,7 +85,7 @@ namespace InventorySystem
         {
             if (Inventory.CurrPartIndex >= 0)
             {
-                //good
+                
                 Inventory.DeletePart(Inventory.CurrentPart);
             }
             else
@@ -90,22 +93,6 @@ namespace InventorySystem
                 MessageBox.Show("There is nothing to delete.", "Delete Error");
             }
             
-            //if (MSDGVParts.RowCount > 0)
-            //{
-            //    DialogResult result = MessageBox.Show("Are you sure you want to delete this part?", "Delete Part", MessageBoxButtons.YesNo);
-            //    if (result == DialogResult.Yes)
-            //    {
-            //        int row = MSDGVParts.CurrentCell.RowIndex;
-            //        MSDGVParts.Rows.RemoveAt(row);
-            //        Inventory.DeletePart(Inventory.LookupPart(currPart));
-            //    }
-            //    return;
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("There is nothing to delete.", "Delete Error");
-            //}
         }
 
         private void MSAddProductButton_Click(object sender, EventArgs e)
@@ -134,8 +121,9 @@ namespace InventorySystem
         {
             if (Inventory.CurrProductIndex >= 0)
             {
-                //good
+                
                 Inventory.RemoveProduct(Inventory.CurrProductIndex);
+
             }
             else
             {
@@ -184,20 +172,17 @@ namespace InventorySystem
 
         private void MSProductSearchBox_TextChanged(object sender, EventArgs e)
         {
-            //do not use
+            //xx
         }
 
         private void DGVProd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Inventory.CurrProductIndex = e.RowIndex;
-            
-            //int row = MSDGVProducts.CurrentCell.RowIndex;
-            //currProd = Convert.ToInt32(MSDGVProducts.Rows[row].Cells[0].Value.ToString());
+            Inventory.CurrProductIndex = e.RowIndex;            
         }
 
         private void MSDGVParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //do not use
+            //xx
         }
     }
 }

@@ -30,22 +30,11 @@ namespace InventorySystem
         }
 
         //Remove Product
-        public static bool RemoveProduct(int ProductID)
+        public static bool RemoveProduct(int index)
         {
-            bool success = false;
-            foreach (Product prod in Products)
-            {
-                if (ProductID == prod.ProductID)
-                {
-                    Products.Remove(prod);
-                    return success = true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return success;
+            Products.RemoveAt(index);
+
+            return true;
 
         }
         //Lookup Product
@@ -93,7 +82,6 @@ namespace InventorySystem
         {
             try
             {
-                AllParts.Remove(CurrentPart);
                 AllParts.Remove(part);
                 return true;
             }
@@ -119,46 +107,11 @@ namespace InventorySystem
 
         }
 
-        public static void UpdateInHousePart(int partID, InhousePart inPart)
+        public static void UpdatePart(int partID, Part part)
         {
-            for (int i = 0; i < AllParts.Count; i++)
-            {
-                if (AllParts[i].GetType() == typeof(InhousePart))
-                {
-                    InhousePart newPart = (InhousePart)AllParts[i];
 
-                    if (newPart.PartID == partID)
-                    {
-                        newPart.Name = inPart.Name;
-                        newPart.InStock = inPart.InStock;
-                        newPart.Price = inPart.Price;
-                        newPart.Max = inPart.Max;
-                        newPart.Min = inPart.Min;
-                        newPart.MachineID = inPart.MachineID;
-                    }
-                }
-            }
-        }
-
-        public static void UpdateOutsourcedPart(int partID, OutsourcedPart outPart)
-        {
-            for (int i = 0; i < AllParts.Count; i++)
-            {
-                if (AllParts[i].GetType() == typeof(OutsourcedPart))
-                {
-                    OutsourcedPart newPart = (OutsourcedPart)AllParts[i];
-
-                    if (newPart.PartID == partID)
-                    {
-                        newPart.Name = outPart.Name;
-                        newPart.InStock = outPart.InStock;
-                        newPart.Price = outPart.Price;
-                        newPart.Max = outPart.Max;
-                        newPart.Min = outPart.Min;
-                        newPart.CompanyName = outPart.CompanyName;
-                    }
-                }
-            }
+            Inventory.DeletePart(part);
+            Inventory.AddPart(part);
         }
 
     }

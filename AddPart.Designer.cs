@@ -99,6 +99,7 @@
             this.APIDTextBox.Name = "APIDTextBox";
             this.APIDTextBox.Size = new System.Drawing.Size(190, 22);
             this.APIDTextBox.TabIndex = 4;
+            this.APIDTextBox.TextChanged += new System.EventHandler(this.APIDTextBox_TextChanged);
             // 
             // APInventoryLabel
             // 

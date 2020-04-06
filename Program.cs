@@ -25,6 +25,7 @@ namespace InventorySystem
             Inventory.AddPart(new OutsourcedPart(3, "Seat", 8, 4.55M, 2, 15, "Bikes For All, Inc.")); //company name
             //end populate list
 
+         
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

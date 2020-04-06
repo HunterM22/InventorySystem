@@ -41,7 +41,16 @@ namespace InventorySystem
 
         private void APSaveButton_Click(object sender, EventArgs e)
         {
+            Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
+            this.Hide();
+            Mainscreen p = new Mainscreen();
+            p.Show();
 
+        }
+
+        private void APIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //xx
         }
     }
 }

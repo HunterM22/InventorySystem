@@ -10,7 +10,8 @@ namespace InventorySystem
 {
     public class Product
     {
-        public BindingList<Part> AssociatedParts = new BindingList<Part>();
+        public static int CurrAssocIndex { get; set; }
+        public static Part CurrentAssocPart { get; set; }
 
         //Property
         public Product(int productID, string name, int inStock, decimal price,
@@ -34,6 +35,8 @@ namespace InventorySystem
             public int Min { get; set; }
             public int Max { get; set; }
 
+        public BindingList<Part> AssociatedParts = new BindingList<Part>();
+
 
         //METHODS
 
@@ -41,41 +44,48 @@ namespace InventorySystem
         public void AddAssociatedPart(Part PartObject)
         {
             AssociatedParts.Add(PartObject);
+
         }
 
         //Remove Associated Part
-        public bool RemoveAssociatedPart(int partID)
+        public bool RemoveAssociatedPart(int partIdx)
         {
-            bool success = false;
-            foreach (Part part in AssociatedParts)
+            try
             {
-                if (part.PartID == partID)
-                {
-                    AssociatedParts.Remove(part);
-                    return success = true;
-                }
-                else
-                {
-                    success = false;
-                }
+                AssociatedParts.Remove(LookupAssociatedPart(partIdx));
+                return true;
             }
-            return success;
+            catch (Exception)
+            {
+                return false;
+            }
 
         }
         
         //Lookup Associated Part
-        public Part LookupAssociatedPart(int PartID)
+        public Part LookupAssociatedPart(int LpartIdx)
         {
             foreach (Part part in AssociatedParts)
             {
-                if (part.PartID == PartID)
+                if (LpartIdx == LpartIdx)
                 {
                     return part;
                 }
             }
-
-            MessageBox.Show("No Part Found");
             return null;
+
+
+
+            //foreach (Part part in AssociatedParts)
+            //{
+            //    if (part.PartID == PartID)
+            //    {
+            //        return part;
+            //    }
+            //}
+
+            //MessageBox.Show("No Part Found");
+            //return null;
         }
     }  
     

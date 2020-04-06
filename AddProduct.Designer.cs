@@ -172,6 +172,7 @@
             this.AProdDGVParts.RowTemplate.Height = 24;
             this.AProdDGVParts.Size = new System.Drawing.Size(490, 171);
             this.AProdDGVParts.TabIndex = 50;
+            this.AProdDGVParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AProdDGVParts_CellClick);
             this.AProdDGVParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AProdDGVParts_CellContentClick);
             // 
             // AProdDGVAssocParts
@@ -184,6 +185,7 @@
             this.AProdDGVAssocParts.RowTemplate.Height = 24;
             this.AProdDGVAssocParts.Size = new System.Drawing.Size(490, 171);
             this.AProdDGVAssocParts.TabIndex = 51;
+            this.AProdDGVAssocParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AProdDGVAssocParts_CellClick);
             this.AProdDGVAssocParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AProdDGVAssocParts_CellContentClick);
             // 
             // AProdAddButton

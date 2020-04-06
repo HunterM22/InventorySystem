@@ -22,7 +22,7 @@ namespace InventorySystem
             AProdDGVAssocParts.AutoGenerateColumns = true;
 
             AProdDGVParts.DataSource = Inventory.AllParts;
-            // MProdDGVAssocParts.DataSource = Product.AssociatedParts;
+            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
 
             dgvFormatter(AProdDGVParts);
             dgvFormatter(AProdDGVAssocParts);
@@ -40,18 +40,20 @@ namespace InventorySystem
 
         private void AProdCancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            ModifyProductForm o = new ModifyProductForm();
+            o.Show();
+
         }
 
         private void AProdDGVParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int row = AProdDGVParts.CurrentCell.RowIndex;
-            currPart = Convert.ToInt32(AProdDGVParts.Rows[row].Cells[0].Value.ToString());
+           //xx
         }
 
         private void AProdDGVAssocParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //xx
         }
 
         private void AProdSearchButton_Click(object sender, EventArgs e)
@@ -72,17 +74,38 @@ namespace InventorySystem
 
         private void AProdAddButton_Click(object sender, EventArgs e)
         {
-
+            Inventory.CurrentProduct.AddAssociatedPart(Inventory.CurrentPart);
+            this.Hide();
+            ModifyProductForm o = new ModifyProductForm();
+            o.Show();
         }
 
         private void AProdDeleteButton_Click(object sender, EventArgs e)
         {
-
+            Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrPartIndex);
+            this.Hide();
+            ModifyProductForm o = new ModifyProductForm();
+            o.Show();
         }
 
         private void AProdSaveButton_Click(object sender, EventArgs e)
         {
+            Inventory.AddProduct(Inventory.CurrentProduct);
+            this.Hide();
+            Mainscreen p = new Mainscreen();
+            p.Show();
+        }
 
+        private void AProdDGVParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Inventory.CurrPartIndex = e.RowIndex;
+            Inventory.CurrentPart = Inventory.AllParts[Inventory.CurrPartIndex];
+        }
+
+        private void AProdDGVAssocParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Product.CurrAssocIndex = e.RowIndex;
+            Product.CurrentAssocPart = Inventory.CurrentProduct.AssociatedParts[Product.CurrAssocIndex];
         }
     }
 }

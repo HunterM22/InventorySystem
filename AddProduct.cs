@@ -18,11 +18,14 @@ namespace InventorySystem
         {
             InitializeComponent();
 
+            Product newProd = new Product();
+            //Inventory.CurrentProduct = newProd;
+
             AProdDGVParts.AutoGenerateColumns = true;
             AProdDGVAssocParts.AutoGenerateColumns = true;
 
             AProdDGVParts.DataSource = Inventory.AllParts;
-            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            //AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
 
             dgvFormatter(AProdDGVParts);
             dgvFormatter(AProdDGVAssocParts);
@@ -41,7 +44,7 @@ namespace InventorySystem
         private void AProdCancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ModifyProductForm o = new ModifyProductForm();
+            Mainscreen o = new Mainscreen();
             o.Show();
 
         }
@@ -74,7 +77,7 @@ namespace InventorySystem
 
         private void AProdAddButton_Click(object sender, EventArgs e)
         {
-            Inventory.CurrentProduct.AddAssociatedPart(Inventory.CurrentPart);
+            Inventory.AllParts.AddAssociatedPart(Inventory.CurrentPart);// null reference exception
             this.Hide();
             ModifyProductForm o = new ModifyProductForm();
             o.Show();
@@ -90,8 +93,18 @@ namespace InventorySystem
 
         private void AProdSaveButton_Click(object sender, EventArgs e)
         {
-            Inventory.AddProduct(Inventory.CurrentProduct);
-            this.Hide();
+            Product newProd = new Product();
+            newProd.ProductID = Int32.Parse(AProdIDTextBox.Text);
+            newProd.Name = AProdNameTextBox.Text;
+            newProd.InStock = Int32.Parse(AProdInventoryTextBox.Text);
+            newProd.Price = Decimal.Parse(AProdPriceTextBox.Text);
+            newProd.Max = Int32.Parse(AProdMaxTextBox.Text);
+            newProd.Min = Int32.Parse(AProdMinTextBox.Text);
+            Inventory.AddProduct(newProd);
+        
+            Inventory.UpdateProduct(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentProduct);
+           
+            Close();
             Mainscreen p = new Mainscreen();
             p.Show();
         }
@@ -105,7 +118,11 @@ namespace InventorySystem
         private void AProdDGVAssocParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Product.CurrAssocIndex = e.RowIndex;
-            Product.CurrentAssocPart = Inventory.CurrentProduct.AssociatedParts[Product.CurrAssocIndex];
+            Product.CurrentAssocPart = Product.CurrentAssocPart;
+                
+                //Inventory.AllParts[Inventory.CurrPartIndex];
+                
+                //CurrentProduct.AssociatedParts[Product.CurrAssocIndex];
         }
     }
 }

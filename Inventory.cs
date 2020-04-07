@@ -18,7 +18,6 @@ namespace InventorySystem
         public static int CurrProductIndex { get; set; }
 
         public static Part CurrentPart { get; set; }
-
         public static Product CurrentProduct { get; set; }
 
         //PRODUCT METHODS
@@ -53,20 +52,9 @@ namespace InventorySystem
         //Update Product
         public static void UpdateProduct(int productID, Product updatedProduct)
         {
-            foreach (Product currentProd in Products)
-            {
-                //if (currentProd.ProductID == productID)
-                //{ 
-                //    currentProd.Name = updatedProd.Name;
-                //    currentProd.InStock = updatedProd.InStock;
-                //    currentProd.Price = updatedProd.Price;
-                //    currentProd.Max = updatedProd.Max;
-                //    currentProd.Min = updatedProd.Min;
-                //    currentProd.AssociatedParts = updatedProd.AssociatedParts;
-                //    return;
-                //}
+            Inventory.RemoveProduct(CurrProductIndex);
+            Inventory.AddProduct(CurrentProduct);
 
-            }
         }
 
         //PARTS METHODS-----------------
@@ -112,6 +100,7 @@ namespace InventorySystem
 
             Inventory.DeletePart(part);
             Inventory.AddPart(part);
+
         }
 
     }

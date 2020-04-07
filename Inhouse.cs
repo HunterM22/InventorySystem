@@ -11,9 +11,9 @@ namespace InventorySystem
         private int machineID;
 
         public new int MachineID { get; set; }
-       
 
-        //Constructors
+        public InhousePart() { }
+
         public InhousePart(int partID, string name, int inStock, decimal price,
             int max, int min, int machineID)
         {

@@ -15,11 +15,18 @@ namespace InventorySystem
         public AddPartForm()
         {
             InitializeComponent();
+            InhousePart newIPart = new InhousePart();                    
+            //Inventory.CurrentPart = newIPart;
+
+            OutsourcedPart newOPart = new OutsourcedPart();
+            //Inventory.CurrentPart = newOPart;
         }
 
         private void APCancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+            Mainscreen p = new Mainscreen();
+            p.Show();
         }
 
         private void APInhouseRadio_CheckedChanged(object sender, EventArgs e)
@@ -41,10 +48,38 @@ namespace InventorySystem
 
         private void APSaveButton_Click(object sender, EventArgs e)
         {
-            Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
-            this.Hide();
-            Mainscreen p = new Mainscreen();
-            p.Show();
+            if (APInhouseRadio.Checked)
+            {
+
+                InhousePart newIPart = new InhousePart();
+                newIPart.PartID = Int32.Parse(APIDTextBox.Text);
+                newIPart.Name = APNameTextBox.Text;
+                newIPart.InStock = Int32.Parse(APInventoryTextBox.Text);
+                newIPart.Price = Decimal.Parse(APPriceTextBox.Text);
+                newIPart.Max = Int32.Parse(APMaxTextBox.Text);
+                newIPart.Min = Int32.Parse(APMinTextBox.Text);
+                newIPart.MachineID = Int32.Parse(APMachineIDTextBox.Text);
+                Inventory.AddPart(newIPart);
+
+            }
+            else
+            {
+                OutsourcedPart newOPart = new OutsourcedPart();
+                newOPart.PartID = Int32.Parse(APIDTextBox.Text);
+                newOPart.Name = APNameTextBox.Text;
+                newOPart.InStock = Int32.Parse(APInventoryTextBox.Text);
+                newOPart.Price = Decimal.Parse(APPriceTextBox.Text);
+                newOPart.Max = Int32.Parse(APMaxTextBox.Text);
+                newOPart.Min = Int32.Parse(APMinTextBox.Text);
+                newOPart.CompanyName = (APMachineIDTextBox.Text);
+                Inventory.AddPart(newOPart);
+            }
+
+
+                Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
+                Close();
+                Mainscreen p = new Mainscreen();
+                p.Show();
 
         }
 

@@ -35,7 +35,7 @@ namespace InventorySystem
             {
                 MPMachineIDLabel.Text = "Company Name";
                 MPOutsourcedRadio.Checked = true;
-                MPMachineIDTextBox.Text = Inventory.CurrentPart.CompanyName.ToString();
+                MPMachineIDTextBox.Text = Inventory.CurrentPart.CompanyName;
                 /////////System.NullReferenceException: 'Object reference not set to an instance of an object.'////////////
             }
 
@@ -43,7 +43,7 @@ namespace InventorySystem
 
         private void MPCancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             Mainscreen o = new Mainscreen();
             o.Show();
         }
@@ -51,13 +51,13 @@ namespace InventorySystem
         private void MPInhouseRadio_CheckedChanged(object sender, EventArgs e)
         {
             MPMachineIDLabel.Text = "Machine ID";
-            MPMachineIDTextBox.Text = "";
+            MPMachineIDTextBox.Text = Inventory.CurrentPart.MachineID.ToString();
         }
 
         private void MPOutsourcedRadio_CheckedChanged(object sender, EventArgs e)
         {
             MPMachineIDLabel.Text = "Company Name";
-            MPMachineIDTextBox.Text = "";
+            MPMachineIDTextBox.Text = Inventory.CurrentPart.CompanyName;
         }
 
         private void MPSaveButton_Click(object sender, EventArgs e)

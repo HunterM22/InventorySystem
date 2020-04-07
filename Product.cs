@@ -28,12 +28,12 @@ namespace InventorySystem
 
         public Product() { }
 
-            public int ProductID { get; set; }
-            public string Name { get; set; }
-            public decimal Price { get; set; }
-            public int InStock { get; set; }
-            public int Min { get; set; }
-            public int Max { get; set; }
+        public int ProductID { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int InStock { get; set; }
+        public int Min { get; set; }
+        public int Max { get; set; }
 
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
 
@@ -61,33 +61,20 @@ namespace InventorySystem
             }
 
         }
-        
+
         //Lookup Associated Part
-        public Part LookupAssociatedPart(int LpartIdx)
+        public Part LookupAssociatedPart(int partID)
         {
             foreach (Part part in AssociatedParts)
             {
-                if (LpartIdx == LpartIdx)
+                if (part.PartID == partID)
                 {
                     return part;
                 }
             }
             return null;
-
-
-
-            //foreach (Part part in AssociatedParts)
-            //{
-            //    if (part.PartID == PartID)
-            //    {
-            //        return part;
-            //    }
-            //}
-
-            //MessageBox.Show("No Part Found");
-            //return null;
         }
-    }  
-    
+
+    }
 }
 

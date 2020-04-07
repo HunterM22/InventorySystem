@@ -14,6 +14,8 @@ namespace InventorySystem
 
         public new string CompanyName { get; set; }
 
+        public OutsourcedPart() { }
+
         //Constructor 
         public OutsourcedPart(int partID, string name, int inStock, decimal price,
             int max, int min, string companyName)

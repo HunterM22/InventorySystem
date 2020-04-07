@@ -29,9 +29,10 @@ namespace InventorySystem
 
         private void MSAddPartButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             AddPartForm AddAPart = new AddPartForm();
             AddAPart.ShowDialog();
+           
         }
 
         public void Mainscreen_Load(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace InventorySystem
         }
 
         private void MSModifyPartButton_Click(object sender, EventArgs e)
-        {///////////////////////////////////////////////////////////////
+        {
             if (Inventory.CurrPartIndex >= 0)
             {
                 this.Hide();
@@ -97,9 +98,8 @@ namespace InventorySystem
 
         private void MSAddProductButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             AddProductForm AddAProd = new AddProductForm();
-
             AddAProd.ShowDialog();
         }
 
@@ -115,6 +115,7 @@ namespace InventorySystem
             {
                 MessageBox.Show("There are no products to modify.", "Error");
             }
+            
         }
 
         private void MSDeleteProductButton_Click(object sender, EventArgs e)
@@ -134,8 +135,9 @@ namespace InventorySystem
 
         private void MSSearchPartsButton_Click(object sender, EventArgs e)
         {
-            string searchValue = MSPartsSearchBox.Text;
-            foreach (DataGridViewRow row in MSDGVParts.Rows)
+
+            string searchValue = MSProductSearchBox.Text;
+            foreach (DataGridViewRow row in MSDGVProducts.Rows)
             {
                 if ((string)row.Cells[1].Value == searchValue)
                 {
@@ -143,7 +145,7 @@ namespace InventorySystem
                 }
                 else
                 {
-                    row.Selected = false;             
+                    row.Selected = false;
                 }
             }
 
@@ -177,7 +179,8 @@ namespace InventorySystem
 
         private void DGVProd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Inventory.CurrProductIndex = e.RowIndex;            
+            Inventory.CurrProductIndex = e.RowIndex;
+            Inventory.CurrentProduct = Inventory.Products[Inventory.CurrProductIndex];
         }
 
         private void MSDGVParts_CellContentClick(object sender, DataGridViewCellEventArgs e)

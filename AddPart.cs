@@ -76,7 +76,7 @@ namespace InventorySystem
             }
 
 
-                Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
+                //Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
                 Close();
                 Mainscreen p = new Mainscreen();
                 p.Show();

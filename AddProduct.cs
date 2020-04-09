@@ -19,13 +19,13 @@ namespace InventorySystem
             InitializeComponent();
 
             Product newProd = new Product();
-            //Inventory.CurrentProduct = newProd;
+            Inventory.CurrentProduct = newProd;
 
             AProdDGVParts.AutoGenerateColumns = true;
             AProdDGVAssocParts.AutoGenerateColumns = true;
 
             AProdDGVParts.DataSource = Inventory.AllParts;
-            //AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
 
             dgvFormatter(AProdDGVParts);
             dgvFormatter(AProdDGVAssocParts);
@@ -77,33 +77,39 @@ namespace InventorySystem
 
         private void AProdAddButton_Click(object sender, EventArgs e)
         {
-            Inventory.AllParts.AddAssociatedPart(Inventory.CurrentPart);// null reference exception
-            this.Hide();
-            ModifyProductForm o = new ModifyProductForm();
-            o.Show();
+            Inventory.CurrentProduct.AddAssociatedPart(Inventory.CurrentPart);
+            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            AProdDGVParts.DataSource = Inventory.AllParts;
+
+
+            //this.Hide();
+            //AddProductForm o = new AddProductForm();
+            //o.Show();
         }
 
         private void AProdDeleteButton_Click(object sender, EventArgs e)
         {
             Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrPartIndex);
-            this.Hide();
-            ModifyProductForm o = new ModifyProductForm();
-            o.Show();
+            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            AProdDGVParts.DataSource = Inventory.AllParts;
+
+            //this.Hide();
+            //AddProductForm o = new AddProductForm();
+            //o.Show();
         }
 
         private void AProdSaveButton_Click(object sender, EventArgs e)
         {
-            Product newProd = new Product();
-            newProd.ProductID = Int32.Parse(AProdIDTextBox.Text);
-            newProd.Name = AProdNameTextBox.Text;
-            newProd.InStock = Int32.Parse(AProdInventoryTextBox.Text);
-            newProd.Price = Decimal.Parse(AProdPriceTextBox.Text);
-            newProd.Max = Int32.Parse(AProdMaxTextBox.Text);
-            newProd.Min = Int32.Parse(AProdMinTextBox.Text);
-            Inventory.AddProduct(newProd);
-        
-            Inventory.UpdateProduct(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentProduct);
-           
+            //Product newProd = new Product();
+            Inventory.CurrentProduct.ProductID = Int32.Parse(AProdIDTextBox.Text);//update to currentproduct
+            Inventory.CurrentProduct.Name = AProdNameTextBox.Text;
+            Inventory.CurrentProduct.InStock = Int32.Parse(AProdInventoryTextBox.Text);
+            Inventory.CurrentProduct.Price = Decimal.Parse(AProdPriceTextBox.Text);
+            Inventory.CurrentProduct.Max = Int32.Parse(AProdMaxTextBox.Text);
+            Inventory.CurrentProduct.Min = Int32.Parse(AProdMinTextBox.Text);
+            
+            Inventory.AddProduct(Inventory.CurrentProduct);
+                 
             Close();
             Mainscreen p = new Mainscreen();
             p.Show();

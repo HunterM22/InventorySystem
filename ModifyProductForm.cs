@@ -84,22 +84,32 @@ namespace InventorySystem
         private void MProdAddButton_Click(object sender, EventArgs e)
         {
             Inventory.CurrentProduct.AddAssociatedPart(Inventory.CurrentPart);
-            this.Hide();
-            ModifyProductForm o = new ModifyProductForm();
-            o.Show();
+            MProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            MProdDGVParts.DataSource = Inventory.AllParts;
+
+            //this.Hide();
+            //ModifyProductForm o = new ModifyProductForm();
+            //o.Show();
 
         }
 
         private void MProdDeleteButton_Click(object sender, EventArgs e)
         {
             Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrPartIndex);
-            this.Hide();
-            ModifyProductForm o = new ModifyProductForm();
-            o.Show();
+            MProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            MProdDGVParts.DataSource = Inventory.AllParts;
         }
 
         private void MProdSaveButton_Click(object sender, EventArgs e)
         {
+            
+            Inventory.CurrentProduct.ProductID = Int32.Parse(MProdIDTextBox.Text);//update to currentproduct
+            Inventory.CurrentProduct.Name = MProdNameTextBox.Text;
+            Inventory.CurrentProduct.InStock = Int32.Parse(MProdInventoryTextBox.Text);
+            Inventory.CurrentProduct.Price = Decimal.Parse(MProdPriceTextBox.Text);
+            Inventory.CurrentProduct.Max = Int32.Parse(MProdMaxTextBox.Text);
+            Inventory.CurrentProduct.Min = Int32.Parse(MProdMinTextBox.Text);
+
             Inventory.UpdateProduct(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentProduct);
             this.Hide();
             Mainscreen p = new Mainscreen();

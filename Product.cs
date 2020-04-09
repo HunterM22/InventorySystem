@@ -43,8 +43,7 @@ namespace InventorySystem
         //Add Associated Part
         public void AddAssociatedPart(Part PartObject)
         {
-            AssociatedParts.Add(PartObject);
-
+             AssociatedParts.Add(PartObject);
         }
 
         //Remove Associated Part
@@ -67,7 +66,7 @@ namespace InventorySystem
         {
             foreach (Part part in AssociatedParts)
             {
-                if (part.PartID == partID)
+                if (part.PartID == partID)   //Null Reference Exception - obj ref not set to an instance of object
                 {
                     return part;
                 }
@@ -77,4 +76,4 @@ namespace InventorySystem
 
     }
 }
-
+ 

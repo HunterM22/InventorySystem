@@ -93,7 +93,8 @@ namespace InventorySystem
             {
                 MessageBox.Show("There is nothing to delete.", "Delete Error");
             }
-            
+            MSDGVParts.DataSource = Inventory.AllParts;
+
         }
 
         private void MSAddProductButton_Click(object sender, EventArgs e)
@@ -130,14 +131,15 @@ namespace InventorySystem
             {
                 MessageBox.Show("There is nothing to delete.", "Delete Error");
             }
+            MSDGVProducts.DataSource = Inventory.Products;
 
         }
 
         private void MSSearchPartsButton_Click(object sender, EventArgs e)
         {
 
-            string searchValue = MSProductSearchBox.Text;
-            foreach (DataGridViewRow row in MSDGVProducts.Rows)
+            string searchValue = MSPartsSearchBox.Text;
+            foreach (DataGridViewRow row in MSDGVParts.Rows)
             {
                 if ((string)row.Cells[1].Value == searchValue)
                 {

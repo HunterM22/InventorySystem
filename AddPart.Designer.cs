@@ -95,6 +95,7 @@
             // 
             // APIDTextBox
             // 
+            this.APIDTextBox.Enabled = false;
             this.APIDTextBox.Location = new System.Drawing.Point(134, 129);
             this.APIDTextBox.Name = "APIDTextBox";
             this.APIDTextBox.Size = new System.Drawing.Size(190, 22);

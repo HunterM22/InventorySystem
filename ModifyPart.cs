@@ -36,7 +36,6 @@ namespace InventorySystem
                 MPMachineIDLabel.Text = "Company Name";
                 MPOutsourcedRadio.Checked = true;
                 MPMachineIDTextBox.Text = Inventory.CurrentPart.CompanyName;
-                /////////System.NullReferenceException: 'Object reference not set to an instance of an object.'////////////
             }
 
         }
@@ -62,39 +61,42 @@ namespace InventorySystem
 
         private void MPSaveButton_Click(object sender, EventArgs e)
         {
-            if (MPInhouseRadio.Checked)
+            if (Convert.ToInt32(MPMaxTextBox.Text) > Convert.ToInt32(MPMinTextBox.Text))
             {
+                if (MPInhouseRadio.Checked)
+                {
+                    Inventory.CurrentPart.PartID = Int32.Parse(MPIDTextBox.Text);
+                    Inventory.CurrentPart.Name = MPNameTextBox.Text;
+                    Inventory.CurrentPart.InStock = Int32.Parse(MPInventoryTextBox.Text);
+                    Inventory.CurrentPart.Price = Decimal.Parse(MPPriceTextBox.Text);
+                    Inventory.CurrentPart.Max = Int32.Parse(MPMaxTextBox.Text);
+                    Inventory.CurrentPart.Min = Int32.Parse(MPMinTextBox.Text);
+                    Inventory.CurrentPart.MachineID = Int32.Parse(MPMachineIDTextBox.Text);
 
-                //InhousePart newIPart = new InhousePart();
-                Inventory.CurrentPart.PartID = Int32.Parse(MPIDTextBox.Text);
-                Inventory.CurrentPart.Name = MPNameTextBox.Text;
-                Inventory.CurrentPart.InStock = Int32.Parse(MPInventoryTextBox.Text);
-                Inventory.CurrentPart.Price = Decimal.Parse(MPPriceTextBox.Text);
-                Inventory.CurrentPart.Max = Int32.Parse(MPMaxTextBox.Text);
-                Inventory.CurrentPart.Min = Int32.Parse(MPMinTextBox.Text);
-                Inventory.CurrentPart.MachineID = Int32.Parse(MPMachineIDTextBox.Text);
-                //Inventory.AddPart(newIPart);
+                }
+                else
+                {
+                    Inventory.CurrentPart.PartID = Int32.Parse(MPIDTextBox.Text);
+                    Inventory.CurrentPart.Name = MPNameTextBox.Text;
+                    Inventory.CurrentPart.InStock = Int32.Parse(MPInventoryTextBox.Text);
+                    Inventory.CurrentPart.Price = Decimal.Parse(MPPriceTextBox.Text);
+                    Inventory.CurrentPart.Max = Int32.Parse(MPMaxTextBox.Text);
+                    Inventory.CurrentPart.Min = Int32.Parse(MPMinTextBox.Text);
+                    Inventory.CurrentPart.CompanyName = (MPMachineIDTextBox.Text);
+                }
 
+
+                Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
+                this.Hide();
+                Mainscreen o = new Mainscreen();
+                o.Show();
             }
             else
             {
-               // OutsourcedPart newOPart = new OutsourcedPart();
-                Inventory.CurrentPart.PartID = Int32.Parse(MPIDTextBox.Text);
-                Inventory.CurrentPart.Name = MPNameTextBox.Text;
-                Inventory.CurrentPart.InStock = Int32.Parse(MPInventoryTextBox.Text);
-                Inventory.CurrentPart.Price = Decimal.Parse(MPPriceTextBox.Text);
-                Inventory.CurrentPart.Max = Int32.Parse(MPMaxTextBox.Text);
-                Inventory.CurrentPart.Min = Int32.Parse(MPMinTextBox.Text);
-                Inventory.CurrentPart.CompanyName = (MPMachineIDTextBox.Text);
-                //Inventory.AddPart(newOPart);
+                MessageBox.Show("Your min value is greater than the max value.", "Error");
             }
 
 
-            Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
-            this.Hide();
-            Mainscreen o = new Mainscreen();
-            o.Show();
-         
         }
     }
 }

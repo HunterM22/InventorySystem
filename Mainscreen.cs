@@ -23,8 +23,8 @@ namespace InventorySystem
             MSDGVParts.DataSource = Inventory.AllParts;
             MSDGVProducts.DataSource = Inventory.Products;
 
-            //Inventory.CurrPartIndex = -1;
-            //Inventory.CurrProductIndex = -1;
+            Inventory.CurrPartIndex = -1;
+            Inventory.CurrProductIndex = -1;
         }
 
         private void MSAddPartButton_Click(object sender, EventArgs e)
@@ -85,17 +85,28 @@ namespace InventorySystem
 
         private void MSDeletePartButton_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this part?",
+                "Confirm", MessageBoxButtons.YesNo);
             if (Inventory.CurrPartIndex >= 0)
             {
-                
-                Inventory.DeletePart(Inventory.CurrentPart);
-            }
-            else
-            {
-                MessageBox.Show("There is nothing to delete.", "Delete Error");
-            }
-            MSDGVParts.DataSource = Inventory.AllParts;
+                if (dialogResult == DialogResult.Yes)
+                {
 
+                    Inventory.DeletePart(Inventory.CurrentPart);
+
+                }
+
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("No Part Deleted.", "Cancel");
+                }
+            }
+
+            else if (Inventory.CurrPartIndex < 0)
+            {
+                MessageBox.Show("No Part Found.", "Error");
+            }
+            MSDGVProducts.DataSource = Inventory.Products;
         }
 
         private void MSAddProductButton_Click(object sender, EventArgs e)
@@ -122,18 +133,28 @@ namespace InventorySystem
 
         private void MSDeleteProductButton_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?",
+                "Confirm", MessageBoxButtons.YesNo);
             if (Inventory.CurrProductIndex >= 0)
             {
-                
-                Inventory.RemoveProduct(Inventory.CurrProductIndex);
+                if (dialogResult == DialogResult.Yes)
+                {
 
+                    Inventory.RemoveProduct(Inventory.CurrProductIndex);
+
+                }
+
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("No Product Deleted.", "Cancel");
+                }
             }
-            else
+
+            else if (Inventory.CurrProductIndex < 0)
             {
-                MessageBox.Show("There is nothing to delete.", "Delete Error");
+                MessageBox.Show("No Product Found.", "Error");
             }
             MSDGVProducts.DataSource = Inventory.Products;
-
         }
 
         private void MSSearchPartsButton_Click(object sender, EventArgs e)

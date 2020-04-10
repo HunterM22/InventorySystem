@@ -16,10 +16,8 @@ namespace InventorySystem
         {
             InitializeComponent();
             InhousePart newIPart = new InhousePart();                    
-            //Inventory.CurrentPart = newIPart;
-
+           
             OutsourcedPart newOPart = new OutsourcedPart();
-            //Inventory.CurrentPart = newOPart;
         }
 
         private void APCancelButton_Click(object sender, EventArgs e)
@@ -48,38 +46,44 @@ namespace InventorySystem
 
         private void APSaveButton_Click(object sender, EventArgs e)
         {
-            if (APInhouseRadio.Checked)
+            if (Convert.ToInt32(APMaxTextBox.Text) > Convert.ToInt32(APMinTextBox.Text))
             {
+                if (APInhouseRadio.Checked)
+                {
 
-                InhousePart newIPart = new InhousePart();
-                newIPart.PartID = Int32.Parse(APIDTextBox.Text);
-                newIPart.Name = APNameTextBox.Text;
-                newIPart.InStock = Int32.Parse(APInventoryTextBox.Text);
-                newIPart.Price = Decimal.Parse(APPriceTextBox.Text);
-                newIPart.Max = Int32.Parse(APMaxTextBox.Text);
-                newIPart.Min = Int32.Parse(APMinTextBox.Text);
-                newIPart.MachineID = Int32.Parse(APMachineIDTextBox.Text);
-                Inventory.AddPart(newIPart);
+                    InhousePart newIPart = new InhousePart();
+                    newIPart.PartID = Inventory.createPartID();
+                    newIPart.Name = APNameTextBox.Text;
+                    newIPart.InStock = Int32.Parse(APInventoryTextBox.Text);
+                    newIPart.Price = Decimal.Parse(APPriceTextBox.Text);
+                    newIPart.Max = Int32.Parse(APMaxTextBox.Text);
+                    newIPart.Min = Int32.Parse(APMinTextBox.Text);
+                    newIPart.MachineID = Int32.Parse(APMachineIDTextBox.Text);
+                    Inventory.AddPart(newIPart);
 
-            }
-            else
-            {
-                OutsourcedPart newOPart = new OutsourcedPart();
-                newOPart.PartID = Int32.Parse(APIDTextBox.Text);
-                newOPart.Name = APNameTextBox.Text;
-                newOPart.InStock = Int32.Parse(APInventoryTextBox.Text);
-                newOPart.Price = Decimal.Parse(APPriceTextBox.Text);
-                newOPart.Max = Int32.Parse(APMaxTextBox.Text);
-                newOPart.Min = Int32.Parse(APMinTextBox.Text);
-                newOPart.CompanyName = (APMachineIDTextBox.Text);
-                Inventory.AddPart(newOPart);
-            }
+                }
+                else
+                {
+                    OutsourcedPart newOPart = new OutsourcedPart();
+                    newOPart.PartID = Inventory.createPartID();
+                    newOPart.Name = APNameTextBox.Text;
+                    newOPart.InStock = Int32.Parse(APInventoryTextBox.Text);
+                    newOPart.Price = Decimal.Parse(APPriceTextBox.Text);
+                    newOPart.Max = Int32.Parse(APMaxTextBox.Text);
+                    newOPart.Min = Int32.Parse(APMinTextBox.Text);
+                    newOPart.CompanyName = (APMachineIDTextBox.Text);
+                    Inventory.AddPart(newOPart);
+                }
 
-
-                //Inventory.UpdatePart(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentPart);
                 Close();
                 Mainscreen p = new Mainscreen();
                 p.Show();
+            }
+            else
+            {
+                MessageBox.Show("Your min value is greater than the max value.", "Error");
+            }
+
 
         }
 

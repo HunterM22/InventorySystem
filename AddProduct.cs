@@ -80,40 +80,58 @@ namespace InventorySystem
             Inventory.CurrentProduct.AddAssociatedPart(Inventory.CurrentPart);
             AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
             AProdDGVParts.DataSource = Inventory.AllParts;
-
-
-            //this.Hide();
-            //AddProductForm o = new AddProductForm();
-            //o.Show();
         }
 
         private void AProdDeleteButton_Click(object sender, EventArgs e)
         {
-            Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrAssocIndex);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this part?",
+               "Confirm", MessageBoxButtons.YesNo);
+            if (Inventory.CurrAssocIndex >= 0)
+            {
+                if (dialogResult == DialogResult.Yes)
+                {
 
+                    Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrAssocIndex);
+
+                }
+
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("No Part Deleted.", "Cancel");
+                }
+            }
+
+            else if (Inventory.CurrAssocIndex < 0)
+            {
+                MessageBox.Show("No Part Found.", "Error");
+            }
             AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
-            
-            //AProdDGVParts.DataSource = Inventory.AllParts;
-            //this.Hide();
-            //AddProductForm o = new AddProductForm();
-            //o.Show();
+
         }
 
         private void AProdSaveButton_Click(object sender, EventArgs e)
         {
-            //Product newProd = new Product();
-            Inventory.CurrentProduct.ProductID = Int32.Parse(AProdIDTextBox.Text);//update to currentproduct
-            Inventory.CurrentProduct.Name = AProdNameTextBox.Text;
-            Inventory.CurrentProduct.InStock = Int32.Parse(AProdInventoryTextBox.Text);
-            Inventory.CurrentProduct.Price = Decimal.Parse(AProdPriceTextBox.Text);
-            Inventory.CurrentProduct.Max = Int32.Parse(AProdMaxTextBox.Text);
-            Inventory.CurrentProduct.Min = Int32.Parse(AProdMinTextBox.Text);
-            
-            Inventory.AddProduct(Inventory.CurrentProduct);
-                 
-            Close();
-            Mainscreen p = new Mainscreen();
-            p.Show();
+            if (Convert.ToInt32(AProdMaxTextBox.Text) < Convert.ToInt32(AProdMinTextBox.Text))
+            {
+
+                MessageBox.Show("Your min value must be less than the max value.", "Error");
+
+            }
+            else
+            {
+                Inventory.CurrentProduct.ProductID = Inventory.createProductID();
+                Inventory.CurrentProduct.Name = AProdNameTextBox.Text;
+                Inventory.CurrentProduct.InStock = Int32.Parse(AProdInventoryTextBox.Text);
+                Inventory.CurrentProduct.Price = Decimal.Parse(AProdPriceTextBox.Text);
+                Inventory.CurrentProduct.Max = Int32.Parse(AProdMaxTextBox.Text);
+                Inventory.CurrentProduct.Min = Int32.Parse(AProdMinTextBox.Text);
+
+                Inventory.AddProduct(Inventory.CurrentProduct);
+
+                Close();
+                Mainscreen p = new Mainscreen();
+                p.Show();
+            }
         }
 
         private void AProdDGVParts_CellClick(object sender, DataGridViewCellEventArgs e)

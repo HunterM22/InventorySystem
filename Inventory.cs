@@ -24,6 +24,30 @@ namespace InventorySystem
 
         public static Part CurrentAssocPart { get; set; }
 
+        
+        //Auto increment part and product ID
+        public static int createPartID()
+        {
+            int highestID = 0;
+            foreach (Part p in AllParts)
+            {
+                if (p.PartID > highestID)
+                    highestID = p.PartID;
+            }
+            return highestID + 1;
+        }
+
+        public static int createProductID()
+        {
+            int highestID = 0;
+            foreach (Product p in Products)
+            {
+                if (p.ProductID > highestID)
+                    highestID = p.ProductID;
+            }
+            return highestID + 1;
+        }
+
         //PRODUCT METHODS
 
         //Add Product

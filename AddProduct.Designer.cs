@@ -148,6 +148,7 @@
             // 
             // AProdIDTextBox
             // 
+            this.AProdIDTextBox.Enabled = false;
             this.AProdIDTextBox.Location = new System.Drawing.Point(107, 156);
             this.AProdIDTextBox.Name = "AProdIDTextBox";
             this.AProdIDTextBox.Size = new System.Drawing.Size(190, 22);

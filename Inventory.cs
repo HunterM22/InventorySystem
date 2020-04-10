@@ -17,8 +17,12 @@ namespace InventorySystem
         public static int CurrPartIndex { get; set; }
         public static int CurrProductIndex { get; set; }
 
+        public static int CurrAssocIndex { get; set; }
+
         public static Part CurrentPart { get; set; }
         public static Product CurrentProduct { get; set; }
+
+        public static Part CurrentAssocPart { get; set; }
 
         //PRODUCT METHODS
 

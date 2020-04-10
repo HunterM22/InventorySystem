@@ -10,9 +10,9 @@ namespace InventorySystem
 
     {
         //Property
-        private string companyName;
+        ////private string companyName;
 
-        public new string CompanyName { get; set; }
+        //public new string CompanyName { get; set; }
 
         public OutsourcedPart() { }
 

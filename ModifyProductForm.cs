@@ -95,7 +95,7 @@ namespace InventorySystem
 
         private void MProdDeleteButton_Click(object sender, EventArgs e)
         {
-            Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrPartIndex);
+            Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrAssocIndex);
             MProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
             MProdDGVParts.DataSource = Inventory.AllParts;
         }
@@ -124,8 +124,8 @@ namespace InventorySystem
 
         private void MProdDGVAssocParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Product.CurrAssocIndex = e.RowIndex;
-            Product.CurrentAssocPart = Inventory.CurrentProduct.AssociatedParts[Product.CurrAssocIndex];
+           Inventory.CurrAssocIndex = e.RowIndex;
+            Inventory.CurrentAssocPart = Inventory.CurrentProduct.AssociatedParts[Inventory.CurrAssocIndex];
         }
     }
 }

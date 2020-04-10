@@ -8,9 +8,9 @@ namespace InventorySystem
 {
     public class InhousePart : Part
     {
-        private int machineID;
+        //private int machineID;
 
-        public new int MachineID { get; set; }
+        //public new int MachineID { get; set; }
 
         public InhousePart() { }
 

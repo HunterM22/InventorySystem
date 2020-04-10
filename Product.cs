@@ -10,11 +10,9 @@ namespace InventorySystem
 {
     public class Product
     {
-        public static int CurrAssocIndex { get; set; }
-        public static Part CurrentAssocPart { get; set; }
 
-        //Property
-        public Product(int productID, string name, int inStock, decimal price,
+    //Property
+    public Product(int productID, string name, int inStock, decimal price,
             int max, int min)
         {
             ProductID = productID;
@@ -47,11 +45,11 @@ namespace InventorySystem
         }
 
         //Remove Associated Part
-        public bool RemoveAssociatedPart(int partIdx)
+        public bool RemoveAssociatedPart(int xyz)
         {
             try
             {
-                AssociatedParts.Remove(LookupAssociatedPart(partIdx));
+                AssociatedParts.RemoveAt(xyz);
                 return true;
             }
             catch (Exception)

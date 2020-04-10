@@ -89,10 +89,11 @@ namespace InventorySystem
 
         private void AProdDeleteButton_Click(object sender, EventArgs e)
         {
-            Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrPartIndex);
-            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
-            AProdDGVParts.DataSource = Inventory.AllParts;
+            Inventory.CurrentProduct.RemoveAssociatedPart(Inventory.CurrAssocIndex);
 
+            AProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
+            
+            //AProdDGVParts.DataSource = Inventory.AllParts;
             //this.Hide();
             //AddProductForm o = new AddProductForm();
             //o.Show();
@@ -123,8 +124,8 @@ namespace InventorySystem
 
         private void AProdDGVAssocParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Product.CurrAssocIndex = e.RowIndex;
-            Product.CurrentAssocPart = Product.CurrentAssocPart;
+            Inventory.CurrAssocIndex = e.RowIndex;
+            Inventory.CurrentAssocPart = Inventory.CurrentProduct.AssociatedParts[Inventory.CurrAssocIndex];
                 
                 //Inventory.AllParts[Inventory.CurrPartIndex];
                 

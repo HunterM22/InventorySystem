@@ -60,6 +60,7 @@ namespace InventorySystem
         private void DGVCellClick(object sender, DataGridViewCellEventArgs e)
         {//MSPartsDGV
             Inventory.CurrPartIndex = e.RowIndex;
+            Inventory.CurrentPart = Inventory.AllParts[Inventory.CurrPartIndex];
         }
 
         private void MSExitButton_Click(object sender, EventArgs e)

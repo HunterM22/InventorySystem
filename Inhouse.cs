@@ -8,22 +8,14 @@ namespace InventorySystem
 {
     public class InhousePart : Part
     {
-        //private int machineID;
-
-        //public new int MachineID { get; set; }
+        public int MachineID { get; set; }
 
         public InhousePart() { }
 
-        public InhousePart(int partID, string name, int inStock, decimal price,
-            int max, int min, int machineID)
+        public InhousePart(int partID, string name, decimal price, int inStock, int max, int min, int machineID)
+        : base(partID, name, price, inStock, max, min)
         {
-            PartID = partID;
-            Name = name;
-            InStock = inStock;
-            Price = price;
-            Max = max;
-            Min = min;
-            MachineID = machineID;
+           MachineID = machineID;
         }
     }
 }

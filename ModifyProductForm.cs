@@ -31,8 +31,6 @@ namespace InventorySystem
             MProdDGVParts.DataSource = Inventory.AllParts;
             MProdDGVAssocParts.DataSource = Inventory.CurrentProduct.AssociatedParts;
 
-            //Product.CurrAssocIndex = -1;
-            //Inventory.CurrPartIndex = -1;
 
             dgvFormatter(MProdDGVParts);
             dgvFormatter(MProdDGVAssocParts);
@@ -116,24 +114,30 @@ namespace InventorySystem
 
     private void MProdSaveButton_Click(object sender, EventArgs e)
     {
-        if (Convert.ToInt32(MProdMaxTextBox.Text) < Convert.ToInt32(MProdMinTextBox.Text))
-        {
-                MessageBox.Show("Your min value must be less than the max value.", "Error");
-        }
-        else
-        {
-            Inventory.CurrentProduct.ProductID = Int32.Parse(MProdIDTextBox.Text);
-            Inventory.CurrentProduct.Name = MProdNameTextBox.Text;
-            Inventory.CurrentProduct.InStock = Int32.Parse(MProdInventoryTextBox.Text);
-            Inventory.CurrentProduct.Price = Decimal.Parse(MProdPriceTextBox.Text);
-            Inventory.CurrentProduct.Max = Int32.Parse(MProdMaxTextBox.Text);
-            Inventory.CurrentProduct.Min = Int32.Parse(MProdMinTextBox.Text);
+            if (Convert.ToInt32(MProdInventoryTextBox.Text) < Convert.ToInt32(MProdMinTextBox.Text) ||
+                  Convert.ToInt32(MProdInventoryTextBox.Text) > Convert.ToInt32(MProdMaxTextBox.Text))
+            {
+                MessageBox.Show("Inventory is out of range.", "Error");
+                return;
+            }
+            if (Convert.ToInt32(MProdMaxTextBox.Text) < Convert.ToInt32(MProdMinTextBox.Text))
+            {
+                        MessageBox.Show("Your min value must be less than the max value.", "Error");
+            }
+                else
+                {
+                    Inventory.CurrentProduct.ProductID = Int32.Parse(MProdIDTextBox.Text);
+                    Inventory.CurrentProduct.Name = MProdNameTextBox.Text;
+                    Inventory.CurrentProduct.InStock = Int32.Parse(MProdInventoryTextBox.Text);
+                    Inventory.CurrentProduct.Price = Decimal.Parse(MProdPriceTextBox.Text);
+                    Inventory.CurrentProduct.Max = Int32.Parse(MProdMaxTextBox.Text);
+                    Inventory.CurrentProduct.Min = Int32.Parse(MProdMinTextBox.Text);
 
-            Inventory.UpdateProduct(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentProduct);
-            this.Hide();
-            Mainscreen p = new Mainscreen();
-            p.Show();
-        }
+                    Inventory.UpdateProduct(Convert.ToInt32(Inventory.CurrProductIndex), Inventory.CurrentProduct);
+                    this.Hide();
+                    Mainscreen p = new Mainscreen();
+                    p.Show();
+                }
 }
 
         private void MProdDGVParts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -146,6 +150,78 @@ namespace InventorySystem
         {
            Inventory.CurrAssocIndex = e.RowIndex;
             Inventory.CurrentAssocPart = Inventory.CurrentProduct.AssociatedParts[Inventory.CurrAssocIndex];
+        }
+
+        private void MProdInventoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //xx
+        }
+
+        private void MProdInventoryTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a numeric value.", "Error");
+                MProdInventoryTextBox.BackColor = Color.LightPink;
+            }
+            else
+            {
+                e.Handled = false;
+                MProdInventoryTextBox.BackColor = Color.LightGreen;
+            }
+        }
+
+        private void MProdPriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a monetary value.", "Error");
+                MProdPriceTextBox.BackColor = Color.LightPink;
+
+            }
+            else
+            {
+                e.Handled = false;
+                MProdPriceTextBox.BackColor = Color.LightGreen;
+
+            }
+
+        }
+
+        private void MProdMaxTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a numeric value.", "Error");
+                MProdMaxTextBox.BackColor = Color.LightPink;
+            }
+            else
+            {
+                e.Handled = false;
+                MProdMaxTextBox.BackColor = Color.LightGreen;
+            }
+        }
+
+        private void MProdMinTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if (!Char.IsDigit(chr) && chr != 8)
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter a numeric value.", "Error");
+                MProdMinTextBox.BackColor = Color.LightPink;
+            }
+            else
+            {
+                e.Handled = false;
+                MProdMinTextBox.BackColor = Color.LightGreen;
+            }
         }
     }
 }

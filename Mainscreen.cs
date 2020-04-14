@@ -86,27 +86,27 @@ namespace InventorySystem
         private void MSDeletePartButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this part?",
-                "Confirm", MessageBoxButtons.YesNo);
-            if (Inventory.CurrPartIndex >= 0)
-            {
-                if (dialogResult == DialogResult.Yes)
-                {
+                        "Confirm", MessageBoxButtons.YesNo);
+                    if (Inventory.CurrPartIndex >= 0)
+                    {
+                        if (dialogResult == DialogResult.Yes)
+                        {
 
-                    Inventory.DeletePart(Inventory.CurrentPart);
+                            Inventory.DeletePart(Inventory.CurrentPart);
 
-                }
+                        }
 
-                else if (dialogResult == DialogResult.No)
-                {
-                    MessageBox.Show("No Part Deleted.", "Cancel");
-                }
-            }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            MessageBox.Show("No Part Deleted.", "Cancel");
+                        }
+                    }
 
-            else if (Inventory.CurrPartIndex < 0)
-            {
-                MessageBox.Show("No Part Found.", "Error");
-            }
-            MSDGVProducts.DataSource = Inventory.Products;
+                    else if (Inventory.CurrPartIndex < 0)
+                    {
+                        MessageBox.Show("No Part Found.", "Error");
+                    }
+                    MSDGVProducts.DataSource = Inventory.Products;
         }
 
         private void MSAddProductButton_Click(object sender, EventArgs e)
@@ -133,6 +133,11 @@ namespace InventorySystem
 
         private void MSDeleteProductButton_Click(object sender, EventArgs e)
         {
+            if (Inventory.CurrentProduct.AssociatedParts.Count > 0)
+            {
+                MessageBox.Show("Cannot delete a part that has associated parts.", "Error");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?",
                 "Confirm", MessageBoxButtons.YesNo);
             if (Inventory.CurrProductIndex >= 0)

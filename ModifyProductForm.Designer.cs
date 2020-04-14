@@ -179,6 +179,7 @@
             this.MProdMinTextBox.Name = "MProdMinTextBox";
             this.MProdMinTextBox.Size = new System.Drawing.Size(89, 22);
             this.MProdMinTextBox.TabIndex = 70;
+            this.MProdMinTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MProdMinTextBox_KeyPress);
             // 
             // MProdMinLabel
             // 
@@ -195,6 +196,7 @@
             this.MProdMaxTextBox.Name = "MProdMaxTextBox";
             this.MProdMaxTextBox.Size = new System.Drawing.Size(89, 22);
             this.MProdMaxTextBox.TabIndex = 68;
+            this.MProdMaxTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MProdMaxTextBox_KeyPress);
             // 
             // MProdMaxLabel
             // 
@@ -211,6 +213,7 @@
             this.MProdPriceTextBox.Name = "MProdPriceTextBox";
             this.MProdPriceTextBox.Size = new System.Drawing.Size(190, 22);
             this.MProdPriceTextBox.TabIndex = 66;
+            this.MProdPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MProdPriceTextBox_KeyPress);
             // 
             // MProdPriceLabel
             // 
@@ -227,6 +230,8 @@
             this.MProdInventoryTextBox.Name = "MProdInventoryTextBox";
             this.MProdInventoryTextBox.Size = new System.Drawing.Size(190, 22);
             this.MProdInventoryTextBox.TabIndex = 64;
+            this.MProdInventoryTextBox.TextChanged += new System.EventHandler(this.MProdInventoryTextBox_TextChanged);
+            this.MProdInventoryTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MProdInventoryTextBox_KeyPress);
             // 
             // MProdInventoryLabel
             // 
@@ -239,6 +244,7 @@
             // 
             // MProdIDTextBox
             // 
+            this.MProdIDTextBox.Enabled = false;
             this.MProdIDTextBox.Location = new System.Drawing.Point(116, 161);
             this.MProdIDTextBox.Name = "MProdIDTextBox";
             this.MProdIDTextBox.Size = new System.Drawing.Size(190, 22);

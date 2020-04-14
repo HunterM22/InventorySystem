@@ -88,6 +88,7 @@
             this.AProdMinTextBox.Name = "AProdMinTextBox";
             this.AProdMinTextBox.Size = new System.Drawing.Size(89, 22);
             this.AProdMinTextBox.TabIndex = 47;
+            this.AProdMinTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AProdMinTextBox_KeyPress);
             // 
             // AProdMinLabel
             // 
@@ -104,6 +105,7 @@
             this.AProdMaxTextBox.Name = "AProdMaxTextBox";
             this.AProdMaxTextBox.Size = new System.Drawing.Size(89, 22);
             this.AProdMaxTextBox.TabIndex = 45;
+            this.AProdMaxTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AProdMaxTextBox_KeyPress);
             // 
             // AProdMaxLabel
             // 
@@ -120,6 +122,7 @@
             this.AProdPriceTextBox.Name = "AProdPriceTextBox";
             this.AProdPriceTextBox.Size = new System.Drawing.Size(190, 22);
             this.AProdPriceTextBox.TabIndex = 43;
+            this.AProdPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AProdPriceTextBox_KeyPress);
             // 
             // AProdPriceLabel
             // 
@@ -136,6 +139,7 @@
             this.AProdInventoryTextBox.Name = "AProdInventoryTextBox";
             this.AProdInventoryTextBox.Size = new System.Drawing.Size(190, 22);
             this.AProdInventoryTextBox.TabIndex = 41;
+            this.AProdInventoryTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AProdInventoryTextBox_KeyPress);
             // 
             // AProdInventoryLabel
             // 

@@ -64,7 +64,7 @@ namespace InventorySystem
         {
             foreach (Part part in AssociatedParts)
             {
-                if (part.PartID == partID)   //Null Reference Exception - obj ref not set to an instance of object
+                if (part.PartID == partID)   
                 {
                     return part;
                 }

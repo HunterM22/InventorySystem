@@ -56,6 +56,7 @@
             this.MPNameTextBox.Name = "MPNameTextBox";
             this.MPNameTextBox.Size = new System.Drawing.Size(190, 22);
             this.MPNameTextBox.TabIndex = 37;
+            this.MPNameTextBox.TextChanged += new System.EventHandler(this.MPNameTextBox_TextChanged);
             // 
             // MPNameLabel
             // 
@@ -92,6 +93,7 @@
             this.MPMachineIDTextBox.Name = "MPMachineIDTextBox";
             this.MPMachineIDTextBox.Size = new System.Drawing.Size(190, 22);
             this.MPMachineIDTextBox.TabIndex = 33;
+            this.MPMachineIDTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MPMachineIDTextBox_KeyPress);
             // 
             // MPMachineIDLabel
             // 
@@ -108,6 +110,7 @@
             this.MPMinTextBox.Name = "MPMinTextBox";
             this.MPMinTextBox.Size = new System.Drawing.Size(89, 22);
             this.MPMinTextBox.TabIndex = 31;
+            this.MPMinTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MPMinTextBox_KeyPress);
             // 
             // MPMinLabel
             // 
@@ -124,6 +127,7 @@
             this.MPMaxTextBox.Name = "MPMaxTextBox";
             this.MPMaxTextBox.Size = new System.Drawing.Size(89, 22);
             this.MPMaxTextBox.TabIndex = 29;
+            this.MPMaxTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MPMaxTextBox_KeyPress);
             // 
             // MPMaxLabel
             // 
@@ -140,6 +144,7 @@
             this.MPPriceTextBox.Name = "MPPriceTextBox";
             this.MPPriceTextBox.Size = new System.Drawing.Size(190, 22);
             this.MPPriceTextBox.TabIndex = 27;
+            this.MPPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MPPriceTextBox_KeyPress);
             // 
             // MPPriceLabel
             // 
@@ -156,6 +161,7 @@
             this.MPInventoryTextBox.Name = "MPInventoryTextBox";
             this.MPInventoryTextBox.Size = new System.Drawing.Size(190, 22);
             this.MPInventoryTextBox.TabIndex = 25;
+            this.MPInventoryTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MPInventoryTextBox_KeyPress);
             // 
             // MPInventoryLabel
             // 
@@ -168,6 +174,7 @@
             // 
             // MPIDTextBox
             // 
+            this.MPIDTextBox.Enabled = false;
             this.MPIDTextBox.Location = new System.Drawing.Point(139, 125);
             this.MPIDTextBox.Name = "MPIDTextBox";
             this.MPIDTextBox.Size = new System.Drawing.Size(190, 22);

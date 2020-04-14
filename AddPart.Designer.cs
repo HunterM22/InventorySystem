@@ -117,6 +117,7 @@
             this.APInventoryTextBox.Name = "APInventoryTextBox";
             this.APInventoryTextBox.Size = new System.Drawing.Size(190, 22);
             this.APInventoryTextBox.TabIndex = 6;
+            this.APInventoryTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VerifyNumeric);
             // 
             // APPriceLabel
             // 
@@ -133,6 +134,7 @@
             this.APPriceTextBox.Name = "APPriceTextBox";
             this.APPriceTextBox.Size = new System.Drawing.Size(190, 22);
             this.APPriceTextBox.TabIndex = 8;
+            this.APPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.APPriceTextBox_KeyPress);
             // 
             // APMaxLabel
             // 
@@ -149,6 +151,7 @@
             this.APMaxTextBox.Name = "APMaxTextBox";
             this.APMaxTextBox.Size = new System.Drawing.Size(89, 22);
             this.APMaxTextBox.TabIndex = 10;
+            this.APMaxTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.APMaxTextBox_KeyPress);
             // 
             // APMinLabel
             // 
@@ -165,6 +168,7 @@
             this.APMinTextBox.Name = "APMinTextBox";
             this.APMinTextBox.Size = new System.Drawing.Size(89, 22);
             this.APMinTextBox.TabIndex = 12;
+            this.APMinTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.APMinTextBox_KeyPress);
             // 
             // APMachineIDLabel
             // 
@@ -184,6 +188,7 @@
             this.APMachineIDTextBox.Name = "APMachineIDTextBox";
             this.APMachineIDTextBox.Size = new System.Drawing.Size(190, 22);
             this.APMachineIDTextBox.TabIndex = 14;
+            this.APMachineIDTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.APMachineIDTextBox_KeyPress);
             // 
             // APSaveButton
             // 

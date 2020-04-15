@@ -17,6 +17,7 @@ namespace InventorySystem
             InitializeComponent();
             //Get current prod from Mainscreen selected index
             Inventory.CurrentProduct = Inventory.Products[Inventory.CurrProductIndex];
+
             //Populate fields for selected prod into the Modify form
             MProdIDTextBox.Text = Inventory.CurrentProduct.ProductID.ToString();
             MProdNameTextBox.Text = Inventory.CurrentProduct.Name;

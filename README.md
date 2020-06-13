@@ -3,7 +3,7 @@ C# Inventory Management System using Winforms and Data Grid Views
 
 ![image](https://user-images.githubusercontent.com/60014977/84559179-92a64280-ad06-11ea-951d-39db93957450.png)
 
-![image](https://user-images.githubusercontent.com/60014977/84559205-c3867780-ad06-11ea-906f-9e0d1542e9b4.png)
+![image](https://user-images.githubusercontent.com/60014977/84559315-8f5f8680-ad07-11ea-90da-ac9e8ba24031.png)
 
 ![image](https://user-images.githubusercontent.com/60014977/84559257-034d5f00-ad07-11ea-9a73-4c7b9af10f96.png)
 

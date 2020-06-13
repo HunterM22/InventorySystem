@@ -3,6 +3,8 @@ C# Inventory Management System using Winforms and Data Grid Views
 
 ![image](https://user-images.githubusercontent.com/60014977/84559179-92a64280-ad06-11ea-951d-39db93957450.png)
 
+![image](https://user-images.githubusercontent.com/60014977/84559205-c3867780-ad06-11ea-906f-9e0d1542e9b4.png)
+
 A.  A main form, showing the following controls:
 
     •  buttons for “Add,” “Modify,” “Delete,” “Search” for parts and products, and “Exit”
